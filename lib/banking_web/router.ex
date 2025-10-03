@@ -21,9 +21,15 @@ defmodule BankingWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BankingWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", BankingWeb do
+    pipe_through :api
+
+    get "/clientes", ClienteController, :index
+    post "/clientes", ClienteController, :create
+    get "/clientes/:cpf_cnpj", ClienteController, :get_cliente_cpf_cnpj
+    put "/clientes", ClienteController, :update
+    delete "/clientes", ClienteController, :delete
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:banking, :dev_routes) do

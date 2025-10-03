@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :banking, Banking.Repo,
-  username: "root",
-  password: "",
+  username: "admin",
+  password: "admin",
   hostname: "localhost",
-  database: "banking_dev",
+  database: "banking",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

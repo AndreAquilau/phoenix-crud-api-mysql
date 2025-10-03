@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  livebook:
+    image: ghcr.io/livebook-dev/livebook
+    container_name: livebook-container
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - LIVEBOOK_PASSWORD=elixir123456
+    restart: unless-stopped
+    pull_policy: always
+    
+  database: # Define a service named 'db' for your MySQL database
+    image: mysql:8.0 # Use the official MySQL 8.0 Docker image
+    container_name: mysql_db_container # Assign a custom name to the container
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Set the root password for MySQL
+      MYSQL_DATABASE: banking # Create a default database on startup
+      MYSQL_USER: admin # Create a new user
+      MYSQL_PASSWORD: admin # Set the password for the new user
+    ports:
+      - "3306:3306" # Map host port 3306 to container port 3306
+    restart: always # Ensure the container restarts automatically if it stops
