@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "f34e0194-53c1-451a-b175-291b430b619f",
+		"name": "Phoenix WebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29286422"
+	},
+	"item": [
+		{
+			"name": "Lista Clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome_completo\": \"João da Silva\",\n    \"cpf_cnpj\": \"123.456.789-02\",\n    \"data_nascimento\": \"1980-05-15\",\n    \"email\": \"joao.silva@example.com\",\n    \"telefone\": \"(69) 99999-1234\",\n    \"endereco\": \"Rua das Palmeiras, 100\",\n    \"cidade\": \"Ji-Paraná\",\n    \"estado\": \"RO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Cliente Por CPF ou CNPJ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/clientes/:cpf_cnpj",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"clientes",
+						":cpf_cnpj"
+					],
+					"variable": [
+						{
+							"key": "cpf_cnpj",
+							"value": "123.456.789-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Dados Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf_cnpj\": \"123.456.789-02\",\n    \"cidade\": \"Cacoal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf_cnpj\": \"123.456.789-02\",\n    \"cidade\": \"Cacoal\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/clientes?cpf_cnpj=123.456.789-02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "cpf_cnpj",
+							"value": "123.456.789-02"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
